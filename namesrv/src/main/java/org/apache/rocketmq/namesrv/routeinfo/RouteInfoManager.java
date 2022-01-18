@@ -54,6 +54,9 @@ public class RouteInfoManager {
     private static final InternalLogger log = InternalLoggerFactory.getLogger(LoggerName.NAMESRV_LOGGER_NAME);
     private final static long BROKER_CHANNEL_EXPIRED_TIME = 1000 * 60 * 2;
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
+    /**
+     * topic queues映射
+     */
     private final HashMap<String/* topic */, List<QueueData>> topicQueueTable;
     /**
      * broker地址表
@@ -772,6 +775,9 @@ public class RouteInfoManager {
     }
 }
 
+/**
+ * broker 元数据信息
+ */
 class BrokerLiveInfo {
     private long lastUpdateTimestamp;
     private DataVersion dataVersion;

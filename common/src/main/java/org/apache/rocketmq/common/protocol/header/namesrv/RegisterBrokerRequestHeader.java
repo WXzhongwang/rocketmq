@@ -38,6 +38,9 @@ public class RegisterBrokerRequestHeader implements CommandCustomHeader {
 
     private boolean compressed;
 
+    /**
+     * crc校验
+     */
     private Integer bodyCrc32 = 0;
 
     public void checkFields() throws RemotingCommandException {

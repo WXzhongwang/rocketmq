@@ -99,7 +99,7 @@ public class NamesrvController {
         this.registerProcessor();
 
         this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
-
+            // 移除不活跃的broker 10s
             @Override
             public void run() {
                 NamesrvController.this.routeInfoManager.scanNotActiveBroker();
@@ -107,7 +107,7 @@ public class NamesrvController {
         }, 5, 10, TimeUnit.SECONDS);
 
         this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
-
+            // kvConfigManager kv config table
             @Override
             public void run() {
                 NamesrvController.this.kvConfigManager.printAllPeriodically();
