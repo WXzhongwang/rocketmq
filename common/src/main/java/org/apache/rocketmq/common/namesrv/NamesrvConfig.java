@@ -20,13 +20,20 @@
  */
 package org.apache.rocketmq.common.namesrv;
 
-import java.io.File;
 import org.apache.rocketmq.common.MixAll;
 import org.apache.rocketmq.common.constant.LoggerName;
 import org.apache.rocketmq.logging.InternalLogger;
 import org.apache.rocketmq.logging.InternalLoggerFactory;
 
+import java.io.File;
+
+/**
+ * 注册中心配置
+ *
+ * @author
+ */
 public class NamesrvConfig {
+
     private static final InternalLogger log = InternalLoggerFactory.getLogger(LoggerName.NAMESRV_LOGGER_NAME);
 
     private String rocketmqHome = System.getProperty(MixAll.ROCKETMQ_HOME_PROPERTY, System.getenv(MixAll.ROCKETMQ_HOME_ENV));
@@ -34,6 +41,9 @@ public class NamesrvConfig {
     private String configStorePath = System.getProperty("user.home") + File.separator + "namesrv" + File.separator + "namesrv.properties";
     private String productEnvName = "center";
     private boolean clusterTest = false;
+    /**
+     * 顺序消息
+     */
     private boolean orderMessageEnable = false;
 
     public boolean isOrderMessageEnable() {
